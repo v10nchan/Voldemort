@@ -1,0 +1,78 @@
+<div id="header">
+
+
+
+
+
+<div id="topline" style="display:none">
+	<div id="messagetoolbar" class="toolbar" style="top:6px;left: auto;">
+		<div class="headlogo">
+			<img src="img/logo.png"/>
+		</div>
+		
+</div>
+	
+	
+	<roundcube:container name="topline-center" id="topline-center" />
+	<div class="topright">
+	<roundcube:container name="topline-right" id="topline-right" />
+	<roundcube:if condition="!env:extwin &amp;&amp; !env:framed" />
+		<span class="username"><roundcube:object name="username" /></span>
+	<!--	<roundcube:button command="logout" label="logout" class="button-logout" />  -->
+	<roundcube:elseif condition="env:extwin" />
+		<roundcube:button name="close" type="link" label="close" class="closelink" onclick="self.close()" />
+	<roundcube:endif />
+	<img src="img/help-icon.png" title="Help" style="margin-right:10px"/>
+	</div>
+
+</div>
+
+<div style="width:96%;padding:0px 10px;border-bottom: solid 1px #D3D3D3;margin: 0px 20px;height: 40px;display:none">
+<div style="padding: 22px 20px 3px 2px;font-weight: bold; float: left;">My Mails</div>
+<a  style="text-decoration: none;color: #000;padding: 3px 10px;background-color: #F1f1f1;border-radius: 4px;border: solid 1px #ccc;
+float: right;margin-left: 2px;margin-top: 15px;"class="button-logout" id="rcmbtn100" href="./?_task=logout" onclick="return rcmail.command('switch-task','logout',this,event)">Cancel</a>
+</div>
+<div id="topline" class="toolbar" style="height: 55px;padding-top:8px">
+<a class="button back" id="rcmbtn126" href="./?_task=mail&amp;_action=list" onclick="return rcmail.command('list','',this,event)" tabindex="8">Cancel</a>
+		<a class="button send" title="Send message" id="rcmbtn127" href="#" onclick="return rcmail.command('send','',this,event)" tabindex="9">Send</a>
+		<roundcube:button command="checkmail" type="link" class="button checkmail disabled" classAct="button checkmail" classSel="button checkmail pressed" label="refresh" title="checkmail" />
+		<roundcube:include file="/includes/mailtoolbar.html" />
+		
+		
+<div id="quicksearchbar" class="searchbox">
+<roundcube:object name="searchform" id="quicksearchbox"   />
+<roundcube:button name="searchmenulink" id="searchmenulink" class="iconbutton searchoptions" onclick="UI.show_popup('searchmenu');return false" title="searchmod" content=" "  />
+<roundcube:button command="reset-search" id="searchreset" class="iconbutton reset" title="resetsearch" content=" " />
+</div>		
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<roundcube:if condition="!env:extwin &amp;&amp; !env:framed" />
+<div id="topnav">
+	<div id="taskbar" class="topright">
+	<roundcube:button command="mail" label="mail" class="button-mail" classSel="button-mail button-selected" innerClass="button-inner" />
+	<roundcube:button command="addressbook" label="addressbook" class="button-addressbook" classSel="button-addressbook button-selected" innerClass="button-inner" />
+	<roundcube:container name="taskbar" id="taskbar" />
+	<roundcube:button command="settings" label="settings" class="button-settings" classSel="button-settings button-selected" innerClass="button-inner" />
+	<roundcube:button command="logout" label="logout" class="button-logout" classSel="button-logout" innerClass="button-inner" />
+	<span class="minmodetoggle"></span>
+	</div>
+	<roundcube:object name="logo" src="/images/roundcube_logo.png" id="toplogo" alt="Logo" onclick="if(window.rcmail)rcmail.command('switch-task','mail')" />
+</div>
+<roundcube:endif />
+
+<br style="clear:both" />
+</div>
