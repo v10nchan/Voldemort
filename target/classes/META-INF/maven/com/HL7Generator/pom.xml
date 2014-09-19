@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>HL7Generator</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <repositories>
+    <repository>
+      <id>medriumrepository-milestone</id>
+      <name>Medrium Repository</name>
+      <url>s3://maven.medrium.com/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>medriumrepository-snapshot</id>
+      <name>Medrium Snapshot Repository</name>
+      <url>s3://maven.medrium.com/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+        <id>com.springsource.repository.bundles.external</id>
+        <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+        <url>http://repository.springsource.com/maven/bundles/external</url>
+    </repository>
+    <repository>
+        <id>com.springsource.repository.bundles.release</id>
+        <name>SpringSource Enterprise Bundle Repository - Releases</name>
+        <url>http://repository.springsource.com/maven/bundles/release</url>
+    </repository>
+    <repository>
+      <id>lpgjavaruntime</id>
+      <name>net.sourceforge.lpg</name>
+      <url>http://repo.openehealth.org/maven2/releases/</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+        	<!-- Guice -->
+		    <dependency>
+		      <groupId>com.google.inject</groupId>
+		      <artifactId>guice</artifactId>
+		      <version>3.0</version>
+		    </dependency>
+		    <dependency>
+		        <groupId>ca.uhn.hapi</groupId>
+		        <artifactId>hapi-structures-v251</artifactId>
+		        <version>2.1</version>
+		    </dependency>
+		    <dependency>
+		      <groupId>com.medrium</groupId>
+		      <artifactId>PersistentManager</artifactId>
+		      <version>2.0Nexia-RC14-SNAPSHOT</version>
+		    </dependency>
+		
+		    <!-- Postgresql -->
+		    <dependency>
+		      <groupId>postgresql</groupId>
+		      <artifactId>postgresql</artifactId>
+		      <version>9.1-901-1.jdbc4</version>
+		    </dependency>
+				    
+			<!-- slf4j logger -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-simple</artifactId>
+		<version>1.7.5</version>
+	</dependency>
+		</dependencies>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
