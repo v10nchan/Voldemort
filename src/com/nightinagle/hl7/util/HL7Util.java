@@ -1,5 +1,6 @@
 package com.nightinagle.hl7.util;
 
+import com.nightinagle.hl7.constants.ConsentConstant;
 import com.nightinagle.hl7.constants.CountryConstant;
 import com.nightinagle.hl7.constants.DosageConstant;
 import com.nightinagle.hl7.constants.EthinicityConstant;
@@ -7,6 +8,7 @@ import com.nightinagle.hl7.constants.FundingEligibilityConstant;
 import com.nightinagle.hl7.constants.PatientStatusConstant;
 import com.nightinagle.hl7.constants.RaceConstants;
 import com.nightinagle.hl7.constants.RelationshipConstant;
+import com.nightinagle.hl7.constants.TitleConstant;
 
 public class HL7Util {
 	
@@ -180,4 +182,35 @@ public class HL7Util {
         }
         return null;
     }
+public static String getTitleDescription(int titleId){
+        
+        switch(titleId){
+            case TitleConstant.TITLE_MR_CODE: 
+                return TitleConstant.TITLE_MR_VALUE;
+            case TitleConstant.TITLE_MS_CODE:
+                return TitleConstant.TITLE_MS_VALUE;
+            case TitleConstant.TITLE_MRS_CODE:
+                return TitleConstant.TITLE_MRS_VALUE;
+            case TitleConstant.TITLE_MISS_CODE:
+                return TitleConstant.TITLE_MISS_VALUE;
+            case TitleConstant.TITLE_DR_CODE:
+                return TitleConstant.TITLE_DR_VALUE;
+        }
+        return null;
+    }
+public static String getConsentDescription(int consentId){
+    
+    switch(consentId){
+        case ConsentConstant.NO_CONSENT_REQUIRED_CODE: 
+            return ConsentConstant.NO_CONSENT_REQUIRED_VALUE;
+        case ConsentConstant.ONE_TIME_CONSENT_CODE:
+            return ConsentConstant.ONE_TIME_CONSENT_CODE_VALUE;
+        case ConsentConstant.ONE_TIME_CONSENT_PENDING_CODE:
+            return ConsentConstant.ONE_TIME_CONSENT_PENDING_CODE_VALUE;
+        case ConsentConstant.VERBAL_CONSENT_CODE:
+            return ConsentConstant.VERBAL_CONSENT_CODE_VALUE;
+    }
+    return null;
+}
+
 }

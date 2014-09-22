@@ -16,7 +16,7 @@ public class HL7GeneratorConstant {
 	public static final String TYPE_CODE="L";
 	public static final String TELECOM_USE_CODE="PRN";
 	public static final String TELECOM_EQUIP_TYPE="PH";
-	public static final String IDENTIFIER_TYPE_CODE="MR";
+	//public static final String IDENTIFIER_TYPE_CODE="MR";
 	public static final String TELECOM_USE_CODE_NET="NET";
 	public static final String IDENTIFIER_TYPE_SS="SS";
 	

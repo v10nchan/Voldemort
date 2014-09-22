@@ -399,24 +399,22 @@ public class ImmunizationHL7Generator implements AbstractHL7Generator {
 		LOGGER.info("\n Exiting from populateNK1Segment method");
 	}
 
-	private void populatePD1Segment(PD1 pd1, PD1Bean pd1Bean) throws DataTypeException {
-		
-		LOGGER.info("\n Entering to populatePD1Segment method");
-		if(pd1.getProtectionIndicator().getValue() == null) {
-			pd1.getPublicityCode().getIdentifier().setValue(pd1Bean.getPublicityCodeIdentifier());
-			pd1.getPublicityCode().getText().setValue(pd1Bean.getPublicityCodeText());
-			if((pd1Bean.getPublicityCodeText()!=null) || (pd1Bean.getPublicityCodeIdentifier()!=null) || (pd1Bean.getImmunizationRegStatus()!=null) || (pd1Bean.getProtectionIndicator()!=null)) {
-				pd1.getPublicityCode().getNameOfCodingSystem().setValue(PD1Bean.PUBLICITY_CODE_NCS);
-			}
-			pd1.getImmunizationRegistryStatus().setValue(pd1Bean.getImmunizationRegStatus());
-			pd1.getImmunizationRegistryStatusEffectiveDate().setValue(pd1Bean.getImmunizationRegStatusEffectiveDate());
-			pd1.getPublicityCodeEffectiveDate().setValue(pd1Bean.getPublicityCodeEffectiveDate());
-		}else{
-			pd1.getProtectionIndicator().setValue(pd1Bean.getProtectionIndicator());
-			pd1.getProtectionIndicatorEffectiveDate().setValue(pd1Bean.getProtectionIndicatorEffectiveDate());
-		}
-		LOGGER.info("\n Exiting from populatePD1Segment method");
-	}
+	private void populatePD1Segment(PD1 pd1, PD1Bean pd1Bean) throws DataTypeException {LOGGER.info("\n Entering to populatePD1Segment method");
+    if(pd1Bean.getProtectionIndicator() == null) {
+        pd1.getPublicityCode().getIdentifier().setValue(pd1Bean.getPublicityCodeIdentifier());
+        pd1.getPublicityCode().getText().setValue(pd1Bean.getPublicityCodeText());
+        if((pd1Bean.getPublicityCodeText()!=null) || (pd1Bean.getPublicityCodeIdentifier()!=null) || (pd1Bean.getImmunizationRegStatus()!=null)) {
+               pd1.getPublicityCode().getNameOfCodingSystem().setValue(PD1Bean.PUBLICITY_CODE_NCS);
+        }
+        pd1.getImmunizationRegistryStatus().setValue(pd1Bean.getImmunizationRegStatus());
+        pd1.getImmunizationRegistryStatusEffectiveDate().setValue(pd1Bean.getImmunizationRegStatusEffectiveDate());
+        pd1.getPublicityCodeEffectiveDate().setValue(pd1Bean.getPublicityCodeEffectiveDate());
+    }else{
+        pd1.getProtectionIndicator().setValue(pd1Bean.getProtectionIndicator());
+        pd1.getProtectionIndicatorEffectiveDate().setValue(pd1Bean.getProtectionIndicatorEffectiveDate());
+    }
+ LOGGER.info("\n Exiting from populatePD1Segment method");
+}
 
 	private void populatePIDSegment(PID pid, PIDBean pidBean) throws HL7Exception {
 		LOGGER.info("\n Entering to populatePIDSegment method");
