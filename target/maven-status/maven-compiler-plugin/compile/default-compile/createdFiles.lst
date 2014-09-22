@@ -2,8 +2,10 @@ com\nightingale\hl7\dto\ORCBean.class
 com\nightingale\hl7\dto\RXABean.class
 com\nightinagle\hl7\constants\FundingEligibilityConstant.class
 com\nightingale\annotation\FetchHistoricalComments.class
+com\nightingale\hl7\daoBeans\PatientNoteInfo.class
 com\nightingale\hl7\daoBeans\PatientProviderInfo.class
 com\nightinagle\hl7\constants\DosageConstant.class
+com\medrium\hl7\Populater\Single\OBXBeanPopulaterSingle.class
 com\nightingale\simplebeans\IsManagecareData.class
 com\nightinagle\hl7\constants\RelationshipConstant.class
 com\nightingale\simplebeans\DataGroupNames.class
@@ -17,6 +19,7 @@ com\nightinagle\hl7\util\HL7GeneratorConstant.class
 com\nightingale\hl7\daoBeans\PatientCommunication.class
 com\nightinagle\hl7\constants\PatientStatusConstant.class
 com\nightingale\hl7\dto\HL7Bean.class
+com\medrium\hl7\Populater\Single\RXRBeanPopulaterSingle.class
 com\nightingale\hl7\daoBeans\PatientImmunization.class
 com\nightingale\annotation\Unlock.class
 com\nightingale\hl7\dto\RefusalReason.class
@@ -34,6 +37,7 @@ com\nightingale\hl7\dao\HL7PopulatorDao.class
 com\nightingale\hl7\daoBeans\DBDataBean.class
 com\nightingale\hl7\service\HL7BeanPopulator.class
 com\medrium\hl7\Populater\PIDBeanPopulater.class
+com\nightinagle\hl7\constants\CountryConstant.class
 com\medrium\hl7\Populater\RXABeanPopulater.class
 com\nightingale\hl7\dto\NK1Bean.class
 com\nightingale\hl7\dto\MSHBean.class
@@ -59,6 +63,7 @@ com\nightingale\hl7\dto\Phone.class
 com\nightingale\hl7\dto\PatientInformation.class
 com\nightingale\hl7\dto\Name.class
 com\nightinagle\hl7\serviceImpl\ImmunizationHL7Generator.class
+com\medrium\hl7\Populater\Single\RXABeanPopulaterSingle.class
 com\nightingale\hl7\dto\PD1Bean.class
 com\nightingale\annotation\PatientID.class
 com\nightinagle\hl7\test\TestHL7.class
@@ -67,6 +72,7 @@ com\nightingale\hl7\daoBeans\RaceInfo.class
 com\medrium\hl7\Populater\NK1BeanPopulater.class
 com\nightingale\hl7\daoBeans\PatientContact.class
 com\nightinagle\hl7\constants\RaceConstants.class
+com\medrium\hl7\Populater\Single\ORCBeanPopulaterSingle.class
 com\medrium\hl7\Populater\MSHBeanPopulater.class
 com\nightingale\annotation\Mergeable.class
 com\medrium\hl7\Populater\RXRBeanPopulater.class
