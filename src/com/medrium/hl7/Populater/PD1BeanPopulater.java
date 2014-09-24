@@ -29,7 +29,7 @@ import com.nightingale.hl7.dto.PD1Bean;
 public class PD1BeanPopulater {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(PD1BeanPopulater.class);
-    private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
     public PD1Bean populatePD1Bean(DBDataBean dataBean, int count) {
         LOGGER.info("\n Entering into populatePD1Bean method ");

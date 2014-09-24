@@ -36,7 +36,7 @@ import com.nightingale.hl7.dto.RefusalReason;
  */
 public class RXABeanPopulaterSingle {
 	private final static Logger LOGGER = LoggerFactory.getLogger(RXABeanPopulaterSingle.class);
-	private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	
 		public RXABean populateRXABeanSingle(DBDataBean dataBean, int count) {
 			LOGGER.info("\n Entering into populateRXABean");

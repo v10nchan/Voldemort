@@ -38,7 +38,7 @@ public class PIDBeanPopulater {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(PIDBeanPopulater.class);
 	
-	private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	
 	public PIDBean populatePIDBean(DBDataBean dataBean, int count) {
 		LOGGER.info("\n Entering into populatePIDBean method");

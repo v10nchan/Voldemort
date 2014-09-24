@@ -25,7 +25,7 @@ public class MSHBeanPopulater {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(MSHBeanPopulater.class);
 	
-	private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMddHHmm");
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
 	
 	// Method to populate MSH Bean
 	public MSHBean populateMSHBean(DBDataBean dataBean, int count) {

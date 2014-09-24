@@ -29,7 +29,7 @@ import com.nightingale.hl7.dto.OBXBean;
  */
 public class OBXBeanPopulater {
 	private final static Logger LOGGER = LoggerFactory.getLogger(OBXBeanPopulater.class);
-	private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
 	public List<OBXBean> populateOBXBean(DBDataBean dataBean, int count) {
 		LOGGER.info("\n Entering into populateOBXBean method");
