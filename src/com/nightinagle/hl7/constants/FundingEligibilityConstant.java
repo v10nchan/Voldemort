@@ -12,12 +12,14 @@ public class FundingEligibilityConstant {
     public static final int UNINSURED = 2;
     public static final int AMERICAN_INDIAN = 3;
     public static final int NOT_ELIGIBLE = 4;
-    public static final int VARICELLA_INFECTION = 5;
+    public static final int VFC_ELIGIBLE = 5;
+    public static final int VARICELLA_INFECTION = 6;
     
     // funding eligibility description
     public static final String MEDICAL_ELIGIBILITY_VALUE = "Medicaid eligible";
     public static final String UNINSURED_VALUE = "Uninsured";
     public static final String AMERICAN_INDIAN_VALUE = "American Indian or Alaska Native";
     public static final String NOT_ELIGIBLE_VALUE = "Not Eligible";
+    public static final String VFC_ELIGIBLE_VALUE = "VFC eligible - Federally Qualified Health Center Patient (under-insured)";
     public static final String VARICELLA_INFECTION_VALUE = "Varicella infection";
 }

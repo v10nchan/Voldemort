@@ -126,6 +126,8 @@ public class HL7Util {
 				return FundingEligibilityConstant.NOT_ELIGIBLE_VALUE;
 			case FundingEligibilityConstant.VARICELLA_INFECTION:
                 return FundingEligibilityConstant.VARICELLA_INFECTION_VALUE;
+			case FundingEligibilityConstant.VFC_ELIGIBLE:
+                return FundingEligibilityConstant.VFC_ELIGIBLE_VALUE;
 		}
 		return null;
 	}

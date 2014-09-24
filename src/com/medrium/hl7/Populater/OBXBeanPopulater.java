@@ -206,7 +206,15 @@ public class OBXBeanPopulater {
 	                        obxBean.setObservationValueText(FundingEligibilityConstant.NOT_ELIGIBLE_VALUE);
 	                        obxBean.setObservationValueIdentifier("V04");
 	                        obxBean.setObservationValueNCS("HL70064");
-	                    }else {
+	                    }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VFC_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+                            obxBean.setObservationValueText(FundingEligibilityConstant.VFC_ELIGIBLE_VALUE);
+                            obxBean.setObservationValueIdentifier("V05");
+                            obxBean.setObservationValueNCS("HL70064");
+                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VARICELLA_INFECTION_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+                            obxBean.setObservationValueText(FundingEligibilityConstant.VARICELLA_INFECTION_VALUE);
+                            obxBean.setObservationValueIdentifier("38907003");
+                            obxBean.setObservationValueNCS("SCT");
+                        }else {
 	                        obxBean.setObservationValueText("");
 	                        obxBean.setObservationValueIdentifier("");
 	                        obxBean.setObservationValueNCS("");
