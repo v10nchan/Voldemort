@@ -58,7 +58,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "IVL_TS", propOrder = {
     "rest",
     "low",
-    "high"
+    "high",
+    "center"
 })
 public class IVLTS
     extends SXCMTS
@@ -78,6 +79,10 @@ public class IVLTS
 	
 	@XmlElement(name="high",namespace = "urn:hl7-org:v3")
 	protected IVXBTS high; //added by manish on JUEN 17,2014
+	
+	@XmlElement(name="center",namespace = "urn:hl7-org:v3")
+	protected IVXBTS center; //added by manish on SEP 24,2014
+	
     /**
 	 * @return the high
 	 */
@@ -149,5 +154,13 @@ public class IVLTS
         }
         return this.rest;
     }
+
+	public IVXBTS getCenter() {
+		return center;
+	}
+
+	public void setCenter(IVXBTS center) {
+		this.center = center;
+	}
 
 }

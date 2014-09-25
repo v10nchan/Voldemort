@@ -16,6 +16,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlID;
@@ -60,7 +61,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StrucDoc.Paragraph", propOrder = {
-    "content"
+    "content",
+    "br",
+    "table"
 })
 public class StrucDocParagraph {
 
@@ -86,7 +89,12 @@ public class StrucDocParagraph {
     protected String language;
     @XmlAttribute
     protected List<String> styleCode;
-
+    
+    @XmlElement(namespace="urn:hl7-org:v3")
+    protected List<StrucDocTable> table;  //added by manish on SEP 24,2014
+    
+    @XmlElement(namespace="urn:hl7-org:v3")
+    protected List<StrucDocBr> br;
 	/**
      * Gets the value of the content property.
      * 
@@ -201,5 +209,20 @@ public class StrucDocParagraph {
         }
         return this.styleCode;
     }
+    
+    public List<StrucDocTable> getTablList() {
+		if(table==null){
+			table=new ArrayList<StrucDocTable>();
+			return table;
+		}
+		return table;
+	}
+
+	public List<StrucDocBr> getBr() {
+		if(br==null){
+			br=new ArrayList<StrucDocBr>();
+		}
+		return br;
+	}
 
 }

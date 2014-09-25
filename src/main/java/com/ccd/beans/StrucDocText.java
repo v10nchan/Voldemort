@@ -66,7 +66,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "list",
     "table",
     "paragraph"
-    
 })
 public class StrucDocText extends ANY {
 
@@ -120,6 +119,8 @@ public class StrucDocText extends ANY {
     @XmlElement(namespace="urn:hl7-org:v3", name="paragraph")
     protected StrucDocParagraph paragraph;//added by manish on JULY 1,2014
     
+   /* @XmlElement(namespace="urn:hl7-org:v3")
+    protected List<StrucDocTable> tablelist;*/
     /**
 	 * @return the paragraph
 	 */
@@ -307,4 +308,15 @@ public class StrucDocText extends ANY {
         return this.styleCode;
     }
 
+	/*public List<StrucDocTable> getTablList() {
+		if(tablelist==null){
+			tablelist=new ArrayList<StrucDocTable>();
+			return tablelist;
+		}
+		return tablelist;
+	}*/
+
+	
+
+	
 }
