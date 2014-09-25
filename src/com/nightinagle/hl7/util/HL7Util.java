@@ -209,8 +209,6 @@ public static String getConsentDescription(int consentId){
             return ConsentConstant.ONE_TIME_CONSENT_CODE_VALUE;
         case ConsentConstant.ONE_TIME_CONSENT_PENDING_CODE:
             return ConsentConstant.ONE_TIME_CONSENT_PENDING_CODE_VALUE;
-        case ConsentConstant.VERBAL_CONSENT_CODE:
-            return ConsentConstant.VERBAL_CONSENT_CODE_VALUE;
     }
     return null;
 }

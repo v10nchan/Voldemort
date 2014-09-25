@@ -36,12 +36,8 @@ public class PD1BeanPopulater {
         PD1Bean pd1Bean = new PD1Bean();
         if(dataBean.getPatientImmunizationsList() != null && dataBean.getPatientImmunizationsList().size() != 0){
             if(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentcode() != 0 || dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid() != 0){
-                pd1Bean.setProtectionIndicator(HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentcode()));
-                pd1Bean.setProtectionIndicatorEffectiveDate(sdf.format(new Date()));
-            }
-            else{
-                pd1Bean.setPublicityCodeIdentifier("02");
-                pd1Bean.setPublicityCodeText(HL7GeneratorConstant.PUBLICITY_CODE_TEXT);
+                pd1Bean.setPublicityCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));//"02");
+                pd1Bean.setPublicityCodeText(HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));//HL7GeneratorConstant.PUBLICITY_CODE_TEXT);
                 if(dataBean.getPatientInformation() != null){
                     pd1Bean.setImmunizationRegStatus(HL7Util.getPatientStatus(dataBean.getPatientInformation().getStatus()));
                 }
@@ -55,7 +51,11 @@ public class PD1BeanPopulater {
                         String adminDate = sdf.format(date);
                         pd1Bean.setPublicityCodeEffectiveDate(adminDate);
                     }
-                }
+                }   
+            }
+            else{
+                pd1Bean.setProtectionIndicator("NA");//HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));
+                pd1Bean.setProtectionIndicatorEffectiveDate(sdf.format(new Date()));
             }
         }
         LOGGER.info("\n Exiting from populatePD1Bean method ");
