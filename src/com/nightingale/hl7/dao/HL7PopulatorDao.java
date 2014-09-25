@@ -62,7 +62,6 @@ public class HL7PopulatorDao {
 		List<PatientInformation> kinInformationList = new ArrayList<PatientInformation>();
 		List<PatientAddress> kinAddressList = new ArrayList<PatientAddress>();;
 		List<PatientCommunication> kinContactList = new ArrayList<PatientCommunication>();
-		List<PatientProviderInfo> providerInfoList = new ArrayList<PatientProviderInfo>();
 		List<PatientImmunizationViewInfo> immunizationViewInfoList = new ArrayList<PatientImmunizationViewInfo>();
 		List<PracticeInfo> practiceInfoList =new ArrayList<PracticeInfo>();
 		List<ImmunizationCptInfo> immunizationCptInfoList = new ArrayList<ImmunizationCptInfo>();
@@ -71,6 +70,7 @@ public class HL7PopulatorDao {
 		List<PatientImmunizationRXAInfo> patientImmunizationRXAInfoList = new ArrayList<PatientImmunizationRXAInfo>();
 		List<PatientNoteInfo> patientNoteInfoList = new ArrayList<PatientNoteInfo>();
 		List<PatientImmunizationViewInfo> immunizationViewInfoList1 = new ArrayList<PatientImmunizationViewInfo>();
+		List<PatientProviderInfo> patientProviderInfoList = new ArrayList<PatientProviderInfo>();
 		//HashMap<Integer, Integer> immuCptMap = new HashMap<Integer, Integer>();
 		
 		try {
@@ -123,9 +123,9 @@ public class HL7PopulatorDao {
 			
 			patIdInfo = new ArrayList<Object>();
 			patIdInfo.add(accountId);
-			String providerQuery = "select * from prov_info where accountid=?";
+			//String providerQuery = "select * from prov_info where accountid=?";
 			String practiceQuery = "select * from practice where accountid=?";
-			providerInfoList = persistentManager.retrieveSet(PatientProviderInfo.class, providerQuery, patIdInfo, null);
+			//providerInfoList = persistentManager.retrieveSet(PatientProviderInfo.class, providerQuery, patIdInfo, null);
 			practiceInfoList = persistentManager.retrieveSet(PracticeInfo.class, practiceQuery, patIdInfo, null);
 			
 			patIdInfo = new ArrayList<Object>();
@@ -143,12 +143,12 @@ public class HL7PopulatorDao {
 			immunizationCptInfoList = persistentManager.retrieveSet(ImmunizationCptInfo.class, immunizationCptQuery, patIdInfo, null);
 			immunizationViewInfoList1 = persistentManager.retrieveSet(PatientImmunizationViewInfo.class, immunizationsViewQuery1, patIdInfo, null);
 			
-			// adding patientimmunization id in a map
-			/*int i = 0;
-			for(PatientImmunization patientImmunization : patientImmunizationsList) {
-				immuCptMap.put(i, patientImmunization.getPatientimmunizationid());
-				i++;
-			}*/
+			//get provider info
+			patIdInfo = new ArrayList<Object>();
+			patIdInfo.add(accountId);
+			patIdInfo.add(patientInformation.getResponsibleProvid());
+			String providerQuery = "select * FROM prov_info WHERE accountID =?"+"and provID =?";
+			patientProviderInfoList = persistentManager.retrieveSet(PatientProviderInfo.class, providerQuery, patIdInfo, null);
 			
 		} catch (PersistentException e) {
 			LOGGER.error("Exception occurred in HL7PopulatorDao::populatePIDBean>>>>>>>>>> \n"+e);
@@ -163,7 +163,7 @@ public class HL7PopulatorDao {
 		dataBean.setKinInformationList(kinInformationList);
 		dataBean.setKinAddressList(kinAddressList);
 		dataBean.setKinContactList(kinContactList);
-		dataBean.setPatientProviderInfoList(providerInfoList);
+		dataBean.setPatientProviderInfoList(patientProviderInfoList);
 		dataBean.setImmunizationViewInfoList(immunizationViewInfoList);
 		dataBean.setPracticeInfoList(practiceInfoList);
 		dataBean.setImmunizationCptInfoList(immunizationCptInfoList);
@@ -176,5 +176,4 @@ public class HL7PopulatorDao {
 		LOGGER.info("\n Exiting from DBDataBean method \n"+dataBean);
 		return dataBean;
 	}
-
 }

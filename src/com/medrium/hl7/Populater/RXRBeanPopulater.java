@@ -37,9 +37,77 @@ public class RXRBeanPopulater {
 	      //need to uncomment when data is available in view
 		  if(dataBean.getImmunizationViewInfoList().get(count).getSite()!=null) {
 		    if(dataBean.getPatientImmunizationsList()!=null && dataBean.getPatientImmunizationsList().size()!=0) {
-		        rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+		        if("C28161".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+		            rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+	                rxrBean.setRouteText("Intramuscular");
+		        }else if("C38192".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+		            rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Auricular(OTIC)");
+		        }else if("C38193".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Buccal");
+                }else if("C38194".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Conjunctival");
+                }else if("C38197".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Dentail");
+                }else if("C38198".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Soft Tissuc");
+                }else if("C38200".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Hemodialysis");
+                }else if("C38203".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Iontophonesis");
+                }else if("C38205".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Endocenvical");
+                }else if("C38206".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Endosinusial");
+                }else if("C38207".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Intrathracic");
+                }else if("C38208".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Endotracheal");
+                }else if("C38209".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Enteral");
+                }else if("C38210".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Epidural");
+                }else if("C38211".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Extra-Amniotic");
+                }else if("C38212".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Extracorporeal");
+                }else if("C38215".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Infiltration");
+                }else if("C38216".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Respiratory(Inhalation)");
+                }else if("C38217".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Intracononal, Dental");
+                }else if("C38218".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Intracononary");
+                }else if("C38219".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Interstitial");
+                }else if("C38220".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getRoutecode())) {
+                    rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+                    rxrBean.setRouteText("Intra-Abdominal");
+                }else{
+		            rxrBean.setRouteIdentifier(dataBean.getPatientImmunizationsList().get(count).getRoutecode());
+	                rxrBean.setRouteText("Intramuscular");
+		        }
 		    }
-		    rxrBean.setRouteText("Intramuscular");
 		    //set site and site identifier
             if((dataBean.getImmunizationViewInfoList().get(count).getSite()).trim().contains("Left")){
                 rxrBean.setAdminSiteIdentifier("LD");

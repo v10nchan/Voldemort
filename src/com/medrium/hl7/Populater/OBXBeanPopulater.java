@@ -248,7 +248,7 @@ public class OBXBeanPopulater {
 	                    obxBean3.setObservationText("Date vaccine information statement published");
 	                    obxBean3.setObservationNCS("LN");
 	                    obxBean3.setObservationSubId("2");
-	                    obxBean3.setObservationValueText(sdf.format(new Date()));
+	                    obxBean3.setObservationValueText(sdf.format(dataBean.getPatientImmunizationsList().get(count).getLastupdated()));
 	                    obxBean3.setObservationResultStatus("F");
 	                    
 	                    obxBeanList.add(obxBean3);

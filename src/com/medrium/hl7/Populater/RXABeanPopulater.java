@@ -180,10 +180,10 @@ public class RXABeanPopulater {
 	                            rxaBean.setAdministrationNoteList(administrationNoteList);
 	                            //set provider
 	                            if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
-	                                rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getProvid()));
-	                                rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
-	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename());
-	                                rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());
+	                                rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getProvid()));
+	                                rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(0).getLastname());
+	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                                rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(0).getFirstname());
 	                            }
 	                            rxaBean.setAdminProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
 	                            rxaBean.setAdminAtNamespaceId(HL7GeneratorConstant.SENDING_FACILITY_NAMESPACE_ID);
@@ -349,10 +349,10 @@ public class RXABeanPopulater {
 	                        rxaBean.setAdministrationNoteList(administrationNoteList);
 	                        //set provider
 	                        if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
-	                            rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getProvid()));
-	                            rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
-	                            rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename());
-	                            rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());
+	                            rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getProvid()));
+	                            rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(0).getLastname());
+	                            rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                            rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(0).getFirstname());
 	                        }
 	                        rxaBean.setAdminProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
 	                        rxaBean.setAdminAtNamespaceId(HL7GeneratorConstant.SENDING_FACILITY_NAMESPACE_ID);

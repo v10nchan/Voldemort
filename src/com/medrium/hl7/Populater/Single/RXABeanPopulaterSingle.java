@@ -18,6 +18,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.medrium.exception.PersistentException;
+import com.medrium.persistence.PersistentManager;
 import com.nightinagle.hl7.constants.DosageConstant;
 import com.nightinagle.hl7.constants.FundingEligibilityConstant;
 import com.nightinagle.hl7.util.HL7GeneratorConstant;
@@ -25,6 +27,7 @@ import com.nightinagle.hl7.util.HL7Util;
 import com.nightingale.hl7.daoBeans.DBDataBean;
 import com.nightingale.hl7.daoBeans.PatientImmunization;
 import com.nightingale.hl7.daoBeans.PatientImmunizationRXAInfo;
+import com.nightingale.hl7.daoBeans.PatientProviderInfo;
 import com.nightingale.hl7.dto.AdministrationNotes;
 import com.nightingale.hl7.dto.ManufecturerName;
 import com.nightingale.hl7.dto.RXABean;
@@ -36,6 +39,7 @@ import com.nightingale.hl7.dto.RefusalReason;
  */
 public class RXABeanPopulaterSingle {
 	private final static Logger LOGGER = LoggerFactory.getLogger(RXABeanPopulaterSingle.class);
+	private PersistentManager persistentManager;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	
 		public RXABean populateRXABeanSingle(DBDataBean dataBean, int count) {

@@ -29,32 +29,35 @@ public class ORCBeanPopulaterSingle {
 		ORCBean orcBean = new ORCBean();
 		int i=0;
 		// fetching provider for patient
-		if(dataBean.getPatientProviderInfoList()!=null || dataBean.getPatientProviderInfoList().size()!=0) {
-			for(int j=0; j<dataBean.getPatientProviderInfoList().size(); j++) {
+		//if(dataBean.getPatientProviderInfoList()!=null || dataBean.getPatientProviderInfoList().size()!=0) {
+			/*for(int j=0; j<dataBean.getPatientProviderInfoList().size(); j++) {
 				i++;
 			}
-			i--;
+			i--;*/
 			orcBean.setFillerOrderEntityIdentifier(HL7GeneratorConstant.FILLER_ORDER_ENTITY_IDENTIFIER+System.currentTimeMillis());
 			orcBean.setFillerOrderNamespaceId(HL7GeneratorConstant.FILLER_ORDER_NAMESPACE_ID);
-			if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
-				orcBean.setEnteredByIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
+			if(dataBean.getPatientImmunizationRXAInfoList()!=null && dataBean.getPatientImmunizationRXAInfoList().size()!=0) {
 				if(dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby()!=null) {
+	                orcBean.setEnteredByIdNumber("NF");//String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
                     int j = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().indexOf(" ");
-                    String firstname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(0, j-1);
+                    String firstname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(0, j);
                     String Surname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(j+1, dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().length()-1);
                     orcBean.setEnteredBySurname(Surname);
                     orcBean.setEnteredByGivenName(firstname);
                 }
-				orcBean.setEnteredByInitial(dataBean.getPatientProviderInfoList().get(i).getMiddlename());
-				orcBean.setOrderingProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
-				orcBean.setOrderingProvSurname(dataBean.getPatientProviderInfoList().get(i).getLastname());
-				orcBean.setOrderingProvGivenName(dataBean.getPatientProviderInfoList().get(i).getFirstname());
+				if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
+				    orcBean.setEnteredByInitial(dataBean.getPatientProviderInfoList().get(i).getMiddlename());
+                    orcBean.setOrderingProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
+                    orcBean.setOrderingProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
+                    orcBean.setOrderingProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());
+				}
+				
 			}
 			
 			orcBean.setEnteredByNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
 			orcBean.setOrderingProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
 			orcBean.setNameTypeCode(HL7GeneratorConstant.TYPE_CODE);
-		}
+		//}
 		
 		LOGGER.info("\n Exiting from populateORCBean method");
 		return orcBean;
