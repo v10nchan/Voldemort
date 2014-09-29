@@ -141,7 +141,7 @@ public class RXABeanPopulater {
 	                            
 	                            //set notes for a patient
 	                            if(dataBean.getPatientNoteInfoList()!=null && dataBean.getPatientNoteInfoList().size()!=0) {
-	                                if(dataBean.getPatientNoteInfoList().get(count).getNote()!=null) {
+	                                if(dataBean.getPatientNoteInfoList().size()>count) {
 	                                    if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("New immunization record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
 	                                        administrationNotes.setIdentifier("00");
 	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
