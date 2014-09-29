@@ -110,10 +110,10 @@ public class RXRBeanPopulater {
 		    }
 		    //set site and site identifier
             if((dataBean.getImmunizationViewInfoList().get(count).getSite()).trim().contains("Left")){
-                rxrBean.setAdminSiteIdentifier("LD");
+                rxrBean.setAdminSiteIdentifier("LA");
                 rxrBean.setAdminSiteText(dataBean.getImmunizationViewInfoList().get(count).getSite());
             }else if((dataBean.getImmunizationViewInfoList().get(count).getSite()).trim().contains("Right")){
-                rxrBean.setAdminSiteIdentifier("RD");
+                rxrBean.setAdminSiteIdentifier("RA");
                 rxrBean.setAdminSiteText(dataBean.getImmunizationViewInfoList().get(count).getSite());
             }
             else{
@@ -122,7 +122,7 @@ public class RXRBeanPopulater {
             }
             rxrBean.setAdminSiteNCS(HL7GeneratorConstant.ADMIN_SITE_NCS);
         }
-		}
+	}
 		
 		LOGGER.info("\n Exiting from populateRXRBean method");
 		return rxrBean;

@@ -81,14 +81,14 @@ public class HL7PopulatorDao {
 			String addressQuery = "select * from pat_address where accountid=?"+" and patientid=?";
 			String communicationQuery = "select * from pat_communication where accountid=?"+" and patientid=?";
 			String raceQuery = "select * from pat_socialhistory_race where accountid=?"+" and patientid=?";
-			String query = "select * from pat_immunizations where accountid=?"+" and patientid=?";
+			String query = "select * from pat_immunizations where accountid=?"+" and patientid=?"+"order By patientimmunizationid ASC";
 			
 			String kinPatIdQuery = "select patientfamilymemberid from pat_family_member where accountid =?"+" and patientid =?";
 			
 			String contactQuery = "select * from pat_contact where accountid=?"+" and patientid=?";
 			String socialHistoryQuery = "select * from pat_socialhistory where accountid=?"+" and patientid=?";
 			String patientNoteQuery = "select * from pat_note where accountid=?"+" and patientid=?";
-			String immunizationsViewQuery = "select * from vwpatientimmunizations where accountid =?"+" and patientid =?";
+			String immunizationsViewQuery = "select * from vwpatientimmunizations where accountid =?"+" and patientid =?"+"order By patientimmunizationid ASC";
 			
 			
 			

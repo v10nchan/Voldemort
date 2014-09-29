@@ -46,7 +46,7 @@ public class TestHL7 {
                         .getHL7BeanPopulator(HL7Type.IMMUNIZATION,
                                 test.persistentManager);
                 // Input patientId and accountId
-                HL7Bean hl7Bean = hl7BeanPopulator.getHL7Bean(29889, 1004578, 58, 2);
+                HL7Bean hl7Bean = hl7BeanPopulator.getHL7Bean(32005, 1004578, 127, 1);
                 // generate HL7.
                 AbstractHL7Generator abstractHL7Generator = HL7GeneratorFactory
                         .getHL7GeneratorInstace(HL7Type.IMMUNIZATION);

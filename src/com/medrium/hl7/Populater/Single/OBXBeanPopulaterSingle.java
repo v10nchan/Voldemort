@@ -235,7 +235,14 @@ public class OBXBeanPopulaterSingle {
 	                    obxBean2.setObservationText("vaccine type");
 	                    obxBean2.setObservationNCS("LN");
 	                    obxBean2.setObservationSubId("2");
-	                    obxBean2.setObservationValueIdentifier("88");
+	                    // need to be remove
+	                    if("Hep A, adult".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname())) {
+	                        obxBean2.setObservationValueIdentifier("85");
+                        }
+	                    else {
+	                        obxBean2.setObservationValueIdentifier("88"); 
+	                    }
+	                    //end
 	                    obxBean2.setObservationValueText("Influenza, unspecified formulation");
 	                    obxBean2.setObservationValueNCS("CVX");
 	                    obxBean2.setObservationResultStatus("F");
@@ -249,7 +256,19 @@ public class OBXBeanPopulaterSingle {
 	                    obxBean3.setObservationText("Date vaccine information statement published");
 	                    obxBean3.setObservationNCS("LN");
 	                    obxBean3.setObservationSubId("2");
-	                    obxBean3.setObservationValueText(sdf.format(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getLastupdated()));
+	                    //need to be remove
+	                    if("Hep A, adult".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname())) {
+	                        obxBean3.setObservationValueText("20111025");
+	                         
+	                    }
+	                    else if("Influenza, seasonal, injectable".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname())) {
+	                        obxBean3.setObservationValueText("20120702");
+	                    }
+	                    else {
+	                        obxBean3.setObservationValueText(sdf.format(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getLastupdated()));
+	                        
+	                    }
+	                    //end
 	                    obxBean3.setObservationResultStatus("F");
 	                    
 	                    obxBeanList.add(obxBean3);

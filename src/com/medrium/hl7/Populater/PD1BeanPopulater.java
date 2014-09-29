@@ -35,26 +35,26 @@ public class PD1BeanPopulater {
         LOGGER.info("\n Entering into populatePD1Bean method ");
         PD1Bean pd1Bean = new PD1Bean();
         if(dataBean.getPatientImmunizationsList() != null && dataBean.getPatientImmunizationsList().size() != 0){
-            if(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentcode() != 0 || dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid() != 0){
-                pd1Bean.setPublicityCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));//"02");
-                pd1Bean.setPublicityCodeText(HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));//HL7GeneratorConstant.PUBLICITY_CODE_TEXT);
+            if(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getConsentcode() != 0 || dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getConsentnameid() != 0){
+                pd1Bean.setPublicityCodeIdentifier("02");//String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));
+                pd1Bean.setPublicityCodeText(HL7GeneratorConstant.PUBLICITY_CODE_TEXT);//HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));//HL7GeneratorConstant.PUBLICITY_CODE_TEXT);
                 if(dataBean.getPatientInformation() != null){
                     pd1Bean.setImmunizationRegStatus(HL7Util.getPatientStatus(dataBean.getPatientInformation().getStatus()));
                 }
                 if(dataBean.getPatientImmunizationRXAInfoList() != null && dataBean.getPatientImmunizationRXAInfoList().size() != 0){
-                    Date date = dataBean.getPatientImmunizationRXAInfoList().get(count).getCreated();
+                    Date date = dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getCreated();
                     if(dataBean.getPatientInformation().getStatusDate()!=null) {
                         pd1Bean.setImmunizationRegStatusEffectiveDate(sdf.format(dataBean.getPatientInformation().getStatusDate()));
                     }
-                    if(dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministrationdate() != null){
-                        date = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministrationdate();
+                    if(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministrationdate() != null){
+                        date = dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministrationdate();
                         String adminDate = sdf.format(date);
                         pd1Bean.setPublicityCodeEffectiveDate(adminDate);
                     }
                 }   
             }
             else{
-                pd1Bean.setProtectionIndicator("NA");//HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));
+                pd1Bean.setProtectionIndicator("N");//HL7Util.getConsentDescription(dataBean.getPatientImmunizationRXAInfoList().get(count).getConsentnameid()));
                 pd1Bean.setProtectionIndicatorEffectiveDate(sdf.format(new Date()));
             }
         }

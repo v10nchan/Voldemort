@@ -183,123 +183,124 @@ public class OBXBeanPopulater {
 	                        }
 	                }*/
 	               // else {
-	                    OBXBean obxBean = new OBXBean();
-	                    obxBean.setOccurrenceId("1");
-	                    obxBean.setValueType("CE");
-	                    obxBean.setObservationId("64994-7");
-	                    obxBean.setObservationText("Vaccine funding program eligibility category");
-	                    obxBean.setObservationNCS("LN");
-	                    obxBean.setObservationSubId("1");
-	                    if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-	                        obxBean.setObservationValueText(FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE);
-	                        obxBean.setObservationValueIdentifier("V01");
-	                        obxBean.setObservationValueNCS("HL70064");
-	                    }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.UNINSURED_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-	                        obxBean.setObservationValueText(FundingEligibilityConstant.UNINSURED_VALUE);
-	                        obxBean.setObservationValueIdentifier("V02");
-	                        obxBean.setObservationValueNCS("HL70064");
-	                    }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.AMERICAN_INDIAN_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-	                        obxBean.setObservationValueText(FundingEligibilityConstant.AMERICAN_INDIAN_VALUE);
-	                        obxBean.setObservationValueIdentifier("V03");
-	                        obxBean.setObservationValueNCS("HL70064");
-	                    }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.NOT_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-	                        obxBean.setObservationValueText(FundingEligibilityConstant.NOT_ELIGIBLE_VALUE);
-	                        obxBean.setObservationValueIdentifier("V04");
-	                        obxBean.setObservationValueNCS("HL70064");
-	                    }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VFC_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-                            obxBean.setObservationValueText(FundingEligibilityConstant.VFC_ELIGIBLE_VALUE);
-                            obxBean.setObservationValueIdentifier("V05");
-                            obxBean.setObservationValueNCS("HL70064");
-                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VARICELLA_INFECTION_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
-                            obxBean.setObservationValueText(FundingEligibilityConstant.VARICELLA_INFECTION_VALUE);
-                            obxBean.setObservationValueIdentifier("38907003");
-                            obxBean.setObservationValueNCS("SCT");
-                        }else {
-	                        obxBean.setObservationValueText("");
-	                        obxBean.setObservationValueIdentifier("");
-	                        obxBean.setObservationValueNCS("");
-	                    }
-	                    obxBean.setObservationResultStatus("F");
-	                    obxBean.setObservationDateTime(sdf.format(new Date()));
-	                    obxBean.setObservMethodId("VXC40");
-	                    obxBean.setObservMethodText("Eligibility captured at the immunization level");
-	                    obxBean.setObservMethodNCS("CDCPHINVS");
-	                    
-	                    obxBeanList.add(obxBean);
-	                    
-	                    OBXBean obxBean2 = new OBXBean();
-	                    obxBean2.setOccurrenceId("2");
-	                    obxBean2.setValueType("CE");
-	                    obxBean2.setObservationId("30956-7");
-	                    obxBean2.setObservationText("vaccine type");
-	                    obxBean2.setObservationNCS("LN");
-	                    obxBean2.setObservationSubId("2");
-	                    obxBean2.setObservationValueIdentifier("88");
-	                    obxBean2.setObservationValueText("Influenza, unspecified formulation");
-	                    obxBean2.setObservationValueNCS("CVX");
-	                    obxBean2.setObservationResultStatus("F");
-	                    
-	                    obxBeanList.add(obxBean2);
-	                    
-	                    OBXBean obxBean3 = new OBXBean();
-	                    obxBean3.setOccurrenceId("3");
-	                    obxBean3.setValueType("TS");
-	                    obxBean3.setObservationId("29768-9");
-	                    obxBean3.setObservationText("Date vaccine information statement published");
-	                    obxBean3.setObservationNCS("LN");
-	                    obxBean3.setObservationSubId("2");
-	                    obxBean3.setObservationValueText(sdf.format(dataBean.getPatientImmunizationsList().get(count).getLastupdated()));
-	                    obxBean3.setObservationResultStatus("F");
-	                    
-	                    obxBeanList.add(obxBean3);
-	                    
-	                    OBXBean obxBean4 = new OBXBean();
-	                    obxBean4.setOccurrenceId("4");
-	                    obxBean4.setValueType("TS");
-	                    obxBean4.setObservationId("29769-7");
-	                    obxBean4.setObservationText("Date vaccine information statement presented");
-	                    obxBean4.setObservationNCS("LN");
-	                    obxBean4.setObservationSubId("2");
-	                    obxBean4.setObservationValueText(sdf.format(new Date()));
-	                    obxBean4.setObservationResultStatus("F");
-	                    
-	                    obxBeanList.add(obxBean4);
-	                //}
 	                    if(count==2) {
-	                        OBXBean obxBean5 = new OBXBean();
-	                        obxBean5.setOccurrenceId("5");
-	                        obxBean5.setValueType("CE");
-	                        obxBean5.setObservationId("30956-7");
-	                        obxBean5.setObservationText("vaccine type");
-	                        obxBean5.setObservationNCS("LN");
-	                        obxBean5.setObservationSubId("3");
-	                        obxBean5.setObservationValueIdentifier("89");
-	                        obxBean5.setObservationValueText("Polio");
-	                        obxBean5.setObservationValueNCS("CVX");
-	                        obxBean5.setObservationResultStatus("F");
+	                        OBXBean obxBean = new OBXBean();
+	                        obxBean.setOccurrenceId("1");
+	                        obxBean.setValueType("CE");
+	                        obxBean.setObservationId("64994-7");
+	                        obxBean.setObservationText("Vaccine funding program eligibility category");
+	                        obxBean.setObservationNCS("LN");
+	                        obxBean.setObservationSubId("1");
+	                        if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE);
+	                            obxBean.setObservationValueIdentifier("V01");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.UNINSURED_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.UNINSURED_VALUE);
+	                            obxBean.setObservationValueIdentifier("V02");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.AMERICAN_INDIAN_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.AMERICAN_INDIAN_VALUE);
+	                            obxBean.setObservationValueIdentifier("V03");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.NOT_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.NOT_ELIGIBLE_VALUE);
+	                            obxBean.setObservationValueIdentifier("V04");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VFC_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.VFC_ELIGIBLE_VALUE);
+	                            obxBean.setObservationValueIdentifier("V05");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VARICELLA_INFECTION_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.VARICELLA_INFECTION_VALUE);
+	                            obxBean.setObservationValueIdentifier("38907003");
+	                            obxBean.setObservationValueNCS("SCT");
+	                        }else {
+	                            obxBean.setObservationValueText("");
+	                            obxBean.setObservationValueIdentifier("");
+	                            obxBean.setObservationValueNCS("");
+	                        }
+	                        obxBean.setObservationResultStatus("F");
+	                        obxBean.setObservationDateTime(sdf.format(new Date()));
+	                        obxBean.setObservMethodId("VXC40");
+	                        obxBean.setObservMethodText("Eligibility captured at the immunization level");
+	                        obxBean.setObservMethodNCS("CDCPHINVS");
 	                        
-	                        obxBeanList.add(obxBean5);
+	                        obxBeanList.add(obxBean);
+	                        
+	                        OBXBean obxBean2 = new OBXBean();
+	                        obxBean2.setOccurrenceId("2");
+	                        obxBean2.setValueType("CE");
+	                        obxBean2.setObservationId("30956-7");
+	                        obxBean2.setObservationText("vaccine type");
+	                        obxBean2.setObservationNCS("LN");
+	                        obxBean2.setObservationSubId("2");
+	                        obxBean2.setObservationValueIdentifier("107");
+	                        obxBean2.setObservationValueText("DTaP");
+	                        obxBean2.setObservationValueNCS("CVX");
+	                        obxBean2.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean2);
+	                        
+	                        OBXBean obxBean3 = new OBXBean();
+	                        obxBean3.setOccurrenceId("3");
+	                        obxBean3.setValueType("TS");
+	                        obxBean3.setObservationId("29768-9");
+	                        obxBean3.setObservationText("Date vaccine information statement published");
+	                        obxBean3.setObservationNCS("LN");
+	                        obxBean3.setObservationSubId("2");
+	                        obxBean3.setObservationValueText("20070517");
+	                        obxBean3.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean3);
+	                        
+	                        OBXBean obxBean4 = new OBXBean();
+	                        obxBean4.setOccurrenceId("4");
+	                        obxBean4.setValueType("TS");
+	                        obxBean4.setObservationId("29769-7");
+	                        obxBean4.setObservationText("Date vaccine information statement presented");
+	                        obxBean4.setObservationNCS("LN");
+	                        obxBean4.setObservationSubId("2");
+	                        obxBean4.setObservationValueText("20120816");
+	                        obxBean4.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean4);
+	                        
 
-	                        OBXBean obxBean6 = new OBXBean();
-	                        obxBean6.setOccurrenceId("6");
-	                        obxBean6.setValueType("TS");
-	                        obxBean6.setObservationId("29768-9");
-	                        obxBean6.setObservationText("Date vaccine information statement published");
-	                        obxBean6.setObservationNCS("LN");
-	                        obxBean6.setObservationSubId("3");
-	                        obxBean6.setObservationValueText(sdf.format(new Date()));
-	                        obxBean6.setObservationResultStatus("F");
-	                        
-	                        obxBeanList.add(obxBean6);
-	                        
-	                        OBXBean obxBean7 = new OBXBean();
+                            OBXBean obxBean5 = new OBXBean();
+                            obxBean5.setOccurrenceId("5");
+                            obxBean5.setValueType("CE");
+                            obxBean5.setObservationId("30956-7");
+                            obxBean5.setObservationText("vaccine type");
+                            obxBean5.setObservationNCS("LN");
+                            obxBean5.setObservationSubId("3");
+                            obxBean5.setObservationValueIdentifier("89");
+                            obxBean5.setObservationValueText("Polio");
+                            obxBean5.setObservationValueNCS("CVX");
+                            obxBean5.setObservationResultStatus("F");
+                            
+                            obxBeanList.add(obxBean5);
+
+                            OBXBean obxBean6 = new OBXBean();
+                            obxBean6.setOccurrenceId("6");
+                            obxBean6.setValueType("TS");
+                            obxBean6.setObservationId("29768-9");
+                            obxBean6.setObservationText("Date vaccine information statement published");
+                            obxBean6.setObservationNCS("LN");
+                            obxBean6.setObservationSubId("3");
+                            obxBean6.setObservationValueText("20111108");//sdf.format(new Date()));
+                            obxBean6.setObservationResultStatus("F");
+                            
+                            obxBeanList.add(obxBean6);
+                            
+                            OBXBean obxBean7 = new OBXBean();
                             obxBean7.setOccurrenceId("7");
                             obxBean7.setValueType("TS");
                             obxBean7.setObservationId("29769-7");
                             obxBean7.setObservationText("Date vaccine information statement presented");
                             obxBean7.setObservationNCS("LN");
                             obxBean7.setObservationSubId("3");
-                            obxBean7.setObservationValueText(sdf.format(new Date()));
+                            obxBean7.setObservationValueText("20120816");//sdf.format(new Date()));
                             obxBean7.setObservationResultStatus("F");
                             
                             obxBeanList.add(obxBean7);
@@ -325,7 +326,7 @@ public class OBXBeanPopulater {
                             obxBean9.setObservationText("Date vaccine information statement published");
                             obxBean9.setObservationNCS("LN");
                             obxBean9.setObservationSubId("4");
-                            obxBean9.setObservationValueText(sdf.format(new Date()));
+                            obxBean9.setObservationValueText("19981216");//sdf.format(new Date()));
                             obxBean9.setObservationResultStatus("F");
                             
                             obxBeanList.add(obxBean9);
@@ -337,11 +338,105 @@ public class OBXBeanPopulater {
                             obxBean10.setObservationText("Date vaccine information statement presented");
                             obxBean10.setObservationNCS("LN");
                             obxBean10.setObservationSubId("4");
-                            obxBean10.setObservationValueText(sdf.format(new Date()));
+                            obxBean10.setObservationValueText("20120816");//sdf.format(new Date()));
                             obxBean10.setObservationResultStatus("F");
                             
                             obxBeanList.add(obxBean10);
 	                    }
+	                    else {
+	                        OBXBean obxBean = new OBXBean();
+	                        obxBean.setOccurrenceId("1");
+	                        obxBean.setValueType("CE");
+	                        obxBean.setObservationId("64994-7");
+	                        obxBean.setObservationText("Vaccine funding program eligibility category");
+	                        obxBean.setObservationNCS("LN");
+	                        obxBean.setObservationSubId("1");
+	                        if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.MEDICAL_ELIGIBILITY_VALUE);
+	                            obxBean.setObservationValueIdentifier("V01");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.UNINSURED_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.UNINSURED_VALUE);
+	                            obxBean.setObservationValueIdentifier("V02");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.AMERICAN_INDIAN_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.AMERICAN_INDIAN_VALUE);
+	                            obxBean.setObservationValueIdentifier("V03");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.NOT_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.NOT_ELIGIBLE_VALUE);
+	                            obxBean.setObservationValueIdentifier("V04");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VFC_ELIGIBLE_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.VFC_ELIGIBLE_VALUE);
+	                            obxBean.setObservationValueIdentifier("V05");
+	                            obxBean.setObservationValueNCS("HL70064");
+	                        }else if(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility()!=null && (FundingEligibilityConstant.VARICELLA_INFECTION_VALUE).equalsIgnoreCase(HL7Util.getFundingDescription(Integer.parseInt(dataBean.getPatientImmunizationsList().get(count).getFundingeligibility())))){
+	                            obxBean.setObservationValueText(FundingEligibilityConstant.VARICELLA_INFECTION_VALUE);
+	                            obxBean.setObservationValueIdentifier("38907003");
+	                            obxBean.setObservationValueNCS("SCT");
+	                        }else {
+	                            obxBean.setObservationValueText("");
+	                            obxBean.setObservationValueIdentifier("");
+	                            obxBean.setObservationValueNCS("");
+	                        }
+	                        obxBean.setObservationResultStatus("F");
+	                        obxBean.setObservationDateTime(sdf.format(new Date()));
+	                        obxBean.setObservMethodId("VXC40");
+	                        obxBean.setObservMethodText("Eligibility captured at the immunization level");
+	                        obxBean.setObservMethodNCS("CDCPHINVS");
+	                        
+	                        obxBeanList.add(obxBean);
+	                        
+	                        OBXBean obxBean2 = new OBXBean();
+	                        obxBean2.setOccurrenceId("2");
+	                        obxBean2.setValueType("CE");
+	                        obxBean2.setObservationId("30956-7");
+	                        obxBean2.setObservationText("vaccine type");
+	                        obxBean2.setObservationNCS("LN");
+	                        obxBean2.setObservationSubId("2");
+	                        obxBean2.setObservationValueIdentifier("88");
+	                        obxBean2.setObservationValueText("Influenza, unspecified formulation");
+	                        obxBean2.setObservationValueNCS("CVX");
+	                        obxBean2.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean2);
+	                        
+	                        OBXBean obxBean3 = new OBXBean();
+	                        obxBean3.setOccurrenceId("3");
+	                        obxBean3.setValueType("TS");
+	                        obxBean3.setObservationId("29768-9");
+	                        obxBean3.setObservationText("Date vaccine information statement published");
+	                        obxBean3.setObservationNCS("LN");
+	                        obxBean3.setObservationSubId("2");
+	                        // need to be remove
+	                        //if("Influenza, seasonal, injectable".equalsIgnoreCase(dataBean.getPatientImmunizationsList().get(count).getProductname())) {
+	                            obxBean3.setObservationValueText("20120702");
+	                        //}
+	                        /*else{
+	                            obxBean3.setObservationValueText(sdf.format(dataBean.getPatientImmunizationsList().get(count).getLastupdated()));
+	                        }*/
+	                        //end
+	                        
+	                        obxBean3.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean3);
+	                        
+	                        OBXBean obxBean4 = new OBXBean();
+	                        obxBean4.setOccurrenceId("4");
+	                        obxBean4.setValueType("TS");
+	                        obxBean4.setObservationId("29769-7");
+	                        obxBean4.setObservationText("Date vaccine information statement presented");
+	                        obxBean4.setObservationNCS("LN");
+	                        obxBean4.setObservationSubId("2");
+	                        obxBean4.setObservationValueText(sdf.format(new Date()));
+	                        obxBean4.setObservationResultStatus("F");
+	                        
+	                        obxBeanList.add(obxBean4);
+	                    }
+	                   
+	                //}
+	                    //if(count==2) {}
 	              }
 		        }
 		     }		

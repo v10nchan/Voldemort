@@ -41,12 +41,15 @@ public class ORCBeanPopulaterSingle {
 	                orcBean.setEnteredByIdNumber("NF");//String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
                     int j = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().indexOf(" ");
                     String firstname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(0, j);
-                    String Surname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(j+1, dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().length()-1);
+                    String Surname = dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().substring(j+1, dataBean.getPatientImmunizationRXAInfoList().get(count).getAdministeredby().length());
                     orcBean.setEnteredBySurname(Surname);
                     orcBean.setEnteredByGivenName(firstname);
+                    if(firstname!=null) {
+                        orcBean.setEnteredByInitial(String.valueOf(firstname.charAt(0)));
+                    }
                 }
 				if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
-				    orcBean.setEnteredByInitial(dataBean.getPatientProviderInfoList().get(i).getMiddlename());
+				   
                     orcBean.setOrderingProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(i).getProvid()));
                     orcBean.setOrderingProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
                     orcBean.setOrderingProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());

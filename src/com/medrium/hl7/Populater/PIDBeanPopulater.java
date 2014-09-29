@@ -51,9 +51,9 @@ public class PIDBeanPopulater {
 			{
 				patientIdentifier.setIdNumber(String.valueOf(patientImmunization.getPatientid()));
 				patientIdentifier.setAssignAuthNamespaceId(HL7GeneratorConstant.ASSIGN_AUTH_NAMESPACE_ID);
-				if(dataBean.getPatientInformation().getTitle()!=null) {
-				    patientIdentifier.setIdentifierTypeCode(HL7Util.getTitleDescription(Integer.parseInt(dataBean.getPatientInformation().getTitle()))); 
-				}
+				//if(dataBean.getPatientInformation().getTitle()!=null) {
+				    patientIdentifier.setIdentifierTypeCode(HL7GeneratorConstant.IDENTIFIER_TYPE_CODE);//HL7Util.getTitleDescription(Integer.parseInt(dataBean.getPatientInformation().getTitle()))); 
+				//}
 				pidBean.addPatientIdentifier(patientIdentifier);
 			}
 			

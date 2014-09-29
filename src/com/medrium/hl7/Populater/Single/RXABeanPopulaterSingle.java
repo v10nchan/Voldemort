@@ -10,6 +10,7 @@
  */
 package com.medrium.hl7.Populater.Single;
 
+import java.sql.DatabaseMetaData;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,11 +53,15 @@ public class RXABeanPopulaterSingle {
 	                    String startDate = sdf.format(date);
 	                    rxaBean.setAdminstrationStartDateTime(startDate);
 	                    if(dataBean.getPatientImmunizationRXAInfoList()!=null && dataBean.getPatientImmunizationRXAInfoList().size()!=0) {
-	                        rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode()));
-	                        rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname());
+	                        // need to be remove
+	                        rxaBean.setAdminsteredCodeIdentifier("998");
+                            rxaBean.setAdminsteredCodeText("Varicella infection");
+                        //end
+	                       // rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode()));
+	                       // rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname());
 	                    }
 	                    if((int)dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministeredamount()==0) {
-	                        rxaBean.setAdminsteredAmt("999");
+	                        rxaBean.setAdminsteredAmt(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministeredamount()));
 	                    }
 	                    else {
 	                        rxaBean.setAdminsteredAmt(String.valueOf((int)dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministeredamount()));
@@ -72,8 +77,16 @@ public class RXABeanPopulaterSingle {
 	                            String startDate = sdf.format(date);
 	                            rxaBean.setAdminstrationStartDateTime(startDate);
 	                            if(dataBean.getPatientImmunizationRXAInfoList()!=null && dataBean.getPatientImmunizationRXAInfoList().size()!=0) {
-	                                rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode()));
-	                                rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname());
+	                                // need to be remove
+	                                if("Influenza, seasonal, injectable".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname())) {
+	                                    rxaBean.setAdminsteredCodeIdentifier("140");
+	                                    
+	                                }
+	                                else{
+                                        rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode())); 
+                                    }
+	                                //end
+	                                 rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname());
 	                            }
 	                            // raw code need to remove
 	                            if((int)dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministeredamount()==0) {
@@ -184,7 +197,12 @@ public class RXABeanPopulaterSingle {
 	                            if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
 	                                rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getProvid()));
 	                                rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
-	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename());
+	                                if(dataBean.getPatientProviderInfoList().get(count).getMiddlename()!=null) {
+	                                    rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename());
+	                                }
+	                                else {
+	                                    rxaBean.setAdminProvInitial(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getFirstname().charAt(0)));
+	                                }
 	                                rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());
 	                            }
 	                            rxaBean.setAdminProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
@@ -198,7 +216,7 @@ public class RXABeanPopulaterSingle {
 	                                        lotNumberList.add(patientImmunization.getLotnumber());
 	                                    }
 	                                    else {
-	                                        lotNumberList.add("NA");
+	                                        lotNumberList.add("NF");
 	                                    }
 	                                }
 	                                rxaBean.setLotNumberList(lotNumberList);
@@ -215,13 +233,13 @@ public class RXABeanPopulaterSingle {
 	                                        name.setIdentifier(dataBean.getPatientImmunizationsList().get(count).getManufacturercode());
 	                                    }
 	                                    else {
-	                                        name.setIdentifier("");
+	                                        name.setIdentifier("NF");
 	                                    }
 	                                   if(patientImmunization.getManufacturername()!=null) {
 	                                       name.setText(dataBean.getPatientImmunizationsList().get(count).getManufacturername());
 	                                   }
 	                                   else {
-	                                       name.setText("");
+	                                       name.setText("NF");
 	                                   }
 	                                    manufecturerNameList.add(name);
 	                                }
@@ -241,7 +259,16 @@ public class RXABeanPopulaterSingle {
 	                        String startDate = sdf.format(date);
 	                        rxaBean.setAdminstrationStartDateTime(startDate);
 	                        if(dataBean.getPatientImmunizationRXAInfoList()!=null && dataBean.getPatientImmunizationRXAInfoList().size()!=0) {
-	                            rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode()));
+	                         // need to be remove
+                                if("Influenza, seasonal, injectable".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname())) {
+                                    rxaBean.setAdminsteredCodeIdentifier("140");
+                                    
+                                }
+                                else{
+                                    rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode())); 
+                                }
+                                //end
+	                           // rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductcode()));
 	                            rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getProductname());
 	                        }
 	                        // raw code need to remove
@@ -353,6 +380,12 @@ public class RXABeanPopulaterSingle {
 	                        if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
 	                            rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getProvid()));
 	                            rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(count).getLastname());
+	                            if(dataBean.getPatientProviderInfoList().get(count).getMiddlename()!=null) {
+	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename()); 
+	                            }
+	                            else {
+	                                rxaBean.setAdminProvInitial(String.valueOf(dataBean.getPatientProviderInfoList().get(count).getFirstname().charAt(0)));
+	                            }
 	                            rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(count).getMiddlename());
 	                            rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(count).getFirstname());
 	                        }
@@ -367,7 +400,7 @@ public class RXABeanPopulaterSingle {
 	                                    lotNumberList.add(patientImmunization.getLotnumber());
 	                                }
 	                                else {
-	                                    lotNumberList.add("NA");
+	                                    lotNumberList.add("NF");
 	                                }
 	                            }
 	                            rxaBean.setLotNumberList(lotNumberList);
@@ -384,13 +417,13 @@ public class RXABeanPopulaterSingle {
 	                                    name.setIdentifier(dataBean.getPatientImmunizationsList().get(count).getManufacturercode());
 	                                }
 	                                else {
-	                                    name.setIdentifier("");
+	                                    name.setIdentifier("NF");
 	                                }
 	                               if(patientImmunization.getManufacturername()!=null) {
 	                                   name.setText(dataBean.getPatientImmunizationsList().get(count).getManufacturername());
 	                               }
 	                               else {
-	                                   name.setText("");
+	                                   name.setText("NF");
 	                               }
 	                                manufecturerNameList.add(name);
 	                            }
@@ -408,7 +441,15 @@ public class RXABeanPopulaterSingle {
                 String startDate = sdf.format(date);
                 rxaBean.setAdminstrationStartDateTime(startDate);
                 if(dataBean.getPatientImmunizationRXAInfoList()!=null && dataBean.getPatientImmunizationRXAInfoList().size()!=0) {
-                    rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getImmunizationcode()));
+                    //need to be remove
+                    if("MMR".equalsIgnoreCase(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getImmunizationname())) {
+                        rxaBean.setAdminsteredCodeIdentifier("03");
+                    }
+                    else{
+                        rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getImmunizationcode())); 
+                    }
+                    //end
+                   // rxaBean.setAdminsteredCodeIdentifier(String.valueOf(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getImmunizationcode()));
                     rxaBean.setAdminsteredCodeText(dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getImmunizationname());
                 }
                 if((int)dataBean.getPatientImmunizationRXAInfoList().get(dataBean.getPatientImmunizationRXAInfoList().size()-1).getAdministeredamount()==0) {

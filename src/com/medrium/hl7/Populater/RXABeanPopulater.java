@@ -141,49 +141,65 @@ public class RXABeanPopulater {
 	                            
 	                            //set notes for a patient
 	                            if(dataBean.getPatientNoteInfoList()!=null && dataBean.getPatientNoteInfoList().size()!=0) {
-	                                if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("New immunization record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("00");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - source unspecified".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("01");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from other provider".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("02");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from parent's written record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("03");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from parent's recall".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("04");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from other registry".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("05");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from birth certificate".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("06");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from school record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("07");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from public agency".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                    administrationNotes.setIdentifier("08");
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }
-	                                else {
-	                                    administrationNotes.setIdentifier(String.valueOf(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNotetypeid()));
-	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                                }
+	                                if(dataBean.getPatientNoteInfoList().get(count).getNote()!=null) {
+	                                    if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("New immunization record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("00");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - source unspecified".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("01");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from other provider".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("02");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from parent's written record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("03");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from parent's recall".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("04");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from other registry".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("05");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from birth certificate".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("06");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from school record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("07");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from public agency".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                        administrationNotes.setIdentifier("08");
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }
+	                                    else {
+	                                        administrationNotes.setIdentifier(String.valueOf(dataBean.getPatientNoteInfoList().get(count).getNotetypeid()));
+	                                        administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                    }
+	                                } 
 	                            }
-	                            
-	                            
 	                            administrationNoteList.add(administrationNotes);
 	                            rxaBean.setAdministrationNoteList(administrationNoteList);
 	                            //set provider
 	                            if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
 	                                rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getProvid()));
 	                                rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(0).getLastname());
-	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                                if(dataBean.getPatientProviderInfoList().get(0).getMiddlename()!=null) {
+	                                    rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                                }
+	                                else {
+	                                    rxaBean.setAdminProvInitial(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getFirstname().charAt(0)));
+	                                }
 	                                rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(0).getFirstname());
+	                            }
+	                            else {
+                                    rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getProvid()));
+                                    rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(0).getLastname());
+                                    if(dataBean.getPatientProviderInfoList().get(0).getMiddlename()!=null) {
+                                        rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+                                    }
+                                    else {
+                                        rxaBean.setAdminProvInitial(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getFirstname().charAt(0)));
+                                    }
+                                    rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(0).getFirstname());
 	                            }
 	                            rxaBean.setAdminProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
 	                            rxaBean.setAdminAtNamespaceId(HL7GeneratorConstant.SENDING_FACILITY_NAMESPACE_ID);
@@ -191,13 +207,21 @@ public class RXABeanPopulater {
 	                            List<String> lotNumberList = new ArrayList<String>();
 	                            if(dataBean.getPatientImmunizationsList()!=null && dataBean.getPatientImmunizationsList().size()!=0) {
 	                                //set lot Number
+	                                int i=1;
 	                                for(PatientImmunization patientImmunization : dataBean.getPatientImmunizationsList()) {
 	                                    if(patientImmunization.getLotnumber()!=null) {
-	                                        lotNumberList.add(patientImmunization.getLotnumber());
+	                                        //need to be remove
+	                                        if(count==2) {
+	                                            lotNumberList.add(dataBean.getPatientImmunizationsList().get(dataBean.getPatientImmunizationsList().size()-i).getLotnumber());//patientImmunization.getLotnumber());
+	                                        }
+	                                        else {
+	                                            lotNumberList.add(patientImmunization.getLotnumber());
+	                                        }
 	                                    }
 	                                    else {
-	                                        lotNumberList.add("NA");
+	                                        lotNumberList.add("NF");
 	                                    }
+	                                    i++;
 	                                }
 	                                rxaBean.setLotNumberList(lotNumberList);
 	                                if(dataBean.getPatientImmunizationsList().get(count).getExpirydate()!=null) {
@@ -213,13 +237,13 @@ public class RXABeanPopulater {
 	                                        name.setIdentifier(patientImmunization.getManufacturercode());
 	                                    }
 	                                    else {
-	                                        name.setIdentifier("");
+	                                        name.setIdentifier("NF");
 	                                    }
 	                                   if(patientImmunization.getManufacturername()!=null) {
 	                                       name.setText(patientImmunization.getManufacturername());
 	                                   }
 	                                   else {
-	                                       name.setText("");
+	                                       name.setText("NF");
 	                                   }
 	                                    manufecturerNameList.add(name);
 	                                }
@@ -310,37 +334,39 @@ public class RXABeanPopulater {
 	                        
 	                        //set notes for a patient
 	                        if(dataBean.getPatientNoteInfoList()!=null && dataBean.getPatientNoteInfoList().size()!=0) {
-	                            if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("New immunization record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("00");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - source unspecified".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("01");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from other provider".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("02");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from parent's written record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("03");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from parent's recall".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("04");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from other registry".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("05");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from birth certificate".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("06");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from school record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("07");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }else if((dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()!=null) && ("Historical information - from public agency".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote()))){
-	                                administrationNotes.setIdentifier("08");
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
-	                            }
-	                            else {
-	                                administrationNotes.setIdentifier(String.valueOf(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNotetypeid()));
-	                                administrationNotes.setText(dataBean.getPatientNoteInfoList().get(dataBean.getPatientNoteInfoList().size()-1).getNote());
+	                            if(dataBean.getPatientNoteInfoList().size()>count) {
+	                                if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("New immunization record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("00");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - source unspecified".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("01");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from other provider".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("02");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from parent's written record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("03");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from parent's recall".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("04");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from other registry".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("05");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from birth certificate".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("06");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from school record".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("07");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }else if((dataBean.getPatientNoteInfoList().get(count).getNote()!=null) && ("Historical information - from public agency".equalsIgnoreCase(dataBean.getPatientNoteInfoList().get(count).getNote()))){
+	                                    administrationNotes.setIdentifier("08");
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }
+	                                else {
+	                                    administrationNotes.setIdentifier(String.valueOf(dataBean.getPatientNoteInfoList().get(count).getNotetypeid()));
+	                                    administrationNotes.setText(dataBean.getPatientNoteInfoList().get(count).getNote());
+	                                }
 	                            }
 	                        }
 	                        
@@ -351,7 +377,12 @@ public class RXABeanPopulater {
 	                        if(dataBean.getPatientProviderInfoList()!=null && dataBean.getPatientProviderInfoList().size()!=0) {
 	                            rxaBean.setAdminProvIdNumber(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getProvid()));
 	                            rxaBean.setAdminProvSurname(dataBean.getPatientProviderInfoList().get(0).getLastname());
-	                            rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                            if(dataBean.getPatientProviderInfoList().get(0).getMiddlename()!=null) {
+	                                rxaBean.setAdminProvInitial(dataBean.getPatientProviderInfoList().get(0).getMiddlename());
+	                            }
+	                            else {
+	                                rxaBean.setAdminProvInitial(String.valueOf(dataBean.getPatientProviderInfoList().get(0).getFirstname().charAt(0)));
+	                            }
 	                            rxaBean.setAdminProvGivenName(dataBean.getPatientProviderInfoList().get(0).getFirstname());
 	                        }
 	                        rxaBean.setAdminProvNamespaceId(HL7GeneratorConstant.NAMESPACE_ID);
@@ -365,7 +396,7 @@ public class RXABeanPopulater {
 	                                    lotNumberList.add(patientImmunization.getLotnumber());
 	                                }
 	                                else {
-	                                    lotNumberList.add("NA");
+	                                    lotNumberList.add("NF");
 	                                }
 	                            }
 	                            rxaBean.setLotNumberList(lotNumberList);
@@ -382,13 +413,13 @@ public class RXABeanPopulater {
 	                                    name.setIdentifier(patientImmunization.getManufacturercode());
 	                                }
 	                                else {
-	                                    name.setIdentifier("");
+	                                    name.setIdentifier("NF");
 	                                }
 	                               if(patientImmunization.getManufacturername()!=null) {
 	                                   name.setText(patientImmunization.getManufacturername());
 	                               }
 	                               else {
-	                                   name.setText("");
+	                                   name.setText("NF");
 	                               }
 	                                manufecturerNameList.add(name);
 	                            }

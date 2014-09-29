@@ -328,20 +328,24 @@ public class ImmunizationHL7Generator implements AbstractHL7Generator {
 		orc.getOrderControl().setValue(ORCBean.ORDER_CONTROL);
 		orc.getFillerOrderNumber().getEntityIdentifier().setValue(orcBean.getFillerOrderEntityIdentifier());
 		orc.getFillerOrderNumber().getNamespaceID().setValue(orcBean.getFillerOrderNamespaceId());
-		orc.getEnteredBy(count).getIDNumber().setValue(orcBean.getEnteredByIdNumber());
-		orc.getEnteredBy(count).getFamilyName().getSurname().setValue(orcBean.getEnteredBySurname());
-		orc.getEnteredBy(count).getGivenName().setValue(orcBean.getEnteredByGivenName());
-		orc.getEnteredBy(count).getSecondAndFurtherGivenNamesOrInitialsThereof()
-				.setValue(orcBean.getEnteredByInitial());
-		orc.getEnteredBy(count).getAssigningAuthority().getNamespaceID()
-				.setValue(orcBean.getEnteredByNamespaceId());
-		orc.getOrderingProvider(count).getIDNumber().setValue(orcBean.getOrderingProvIdNumber());
-		orc.getOrderingProvider(count).getFamilyName().getSurname()
-				.setValue(orcBean.getOrderingProvSurname());
-		orc.getOrderingProvider(count).getGivenName().setValue(orcBean.getOrderingProvGivenName());
-		orc.getOrderingProvider(count).getAssigningAuthority().getNamespaceID()
-				.setValue(orcBean.getOrderingProvNamespaceId());
-		orc.getOrderingProvider(count).getNameTypeCode().setValue(orcBean.getNameTypeCode());
+		if(orcBean.getEnteredByGivenName()!=null) {
+		    orc.getEnteredBy(count).getIDNumber().setValue(orcBean.getEnteredByIdNumber());
+	        orc.getEnteredBy(count).getFamilyName().getSurname().setValue(orcBean.getEnteredBySurname());
+	        orc.getEnteredBy(count).getGivenName().setValue(orcBean.getEnteredByGivenName());
+	        orc.getEnteredBy(count).getSecondAndFurtherGivenNamesOrInitialsThereof()
+	                .setValue(orcBean.getEnteredByInitial());
+	        orc.getEnteredBy(count).getAssigningAuthority().getNamespaceID()
+	                .setValue(orcBean.getEnteredByNamespaceId());
+		}
+		if(orcBean.getOrderingProvGivenName()!=null) {
+		    orc.getOrderingProvider(count).getIDNumber().setValue(orcBean.getOrderingProvIdNumber());
+	        orc.getOrderingProvider(count).getFamilyName().getSurname()
+	                .setValue(orcBean.getOrderingProvSurname());
+	        orc.getOrderingProvider(count).getGivenName().setValue(orcBean.getOrderingProvGivenName());
+	        orc.getOrderingProvider(count).getAssigningAuthority().getNamespaceID()
+	                .setValue(orcBean.getOrderingProvNamespaceId());
+	        orc.getOrderingProvider(count).getNameTypeCode().setValue(orcBean.getNameTypeCode());
+		}
 		LOGGER.info("\n Exiting from populateORCSegment method");
 	}
 
@@ -484,8 +488,9 @@ public class ImmunizationHL7Generator implements AbstractHL7Generator {
 			xad.getStateOrProvince().setValue(address.getState());
 			xad.getZipOrPostalCode().setValue(address.getZip());
 			xad.getCountry().setValue(address.getCountry());
-			xad.getAddressType().setValue(address.getAddressType());
-				
+			if(!"".equalsIgnoreCase(address.getStreetAddress()) && address.getStreetAddress()!=null) {
+			    xad.getAddressType().setValue(address.getAddressType());
+			}	
 			count++;
 		}
 		// PID-13
